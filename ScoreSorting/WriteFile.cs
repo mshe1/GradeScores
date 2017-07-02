@@ -8,6 +8,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace GradeScores {
 	public class WriteFile {
@@ -34,8 +35,15 @@ namespace GradeScores {
 					//Write each entry to output file using UserEntry's correctly formatted
 					//toString method.
 					outputFile.Write(userList[i].toString());
+					//Print each entry to console
+					Console.Write(userList[i].toString());
 				}
 				outputFile.Close();
+				//Print message to inform user program has finished running
+				String fileName = Path.GetFileName(filepath);
+				String outputName = fileName.Insert(fileName.Length - fileExtension.Length, "-graded");
+				Console.WriteLine("Finished: created "+outputName);
+
 			} catch(Exception e) {
 				Console.WriteLine("Could not create output file at: "+filepath);
 				Console.WriteLine(e.ToString());
