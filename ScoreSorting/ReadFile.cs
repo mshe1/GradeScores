@@ -44,7 +44,7 @@ namespace GradeScores {
 			} catch (FileNotFoundException e) {
 				Console.WriteLine("Could not find input file at: " + filepath);
 				Console.WriteLine(e.ToString());
-				throw;
+				System.Environment.Exit(2);
 			}
 			//Use SortList method to sort the list by score, surname, then first name.
 			SortList();
